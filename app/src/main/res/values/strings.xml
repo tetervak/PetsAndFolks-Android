@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Pets &amp; Folks</string>
+    <string name="back">back</string>
+    <string name="menu">menu</string>
+    <string name="folk_list">Folk List</string>
+    <string name="pet_list">Pet List</string>
+    <string name="folk_details">Folk Details</string>
+    <string name="pet_details">Pet Details</string>
+</resources>
