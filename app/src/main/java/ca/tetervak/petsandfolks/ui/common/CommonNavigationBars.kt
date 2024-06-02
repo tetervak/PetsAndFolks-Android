@@ -46,7 +46,7 @@ private val navigationBarItemList: List<NavigationBarItem> = listOf(
 @Composable
 fun CommonBottomBar(
     currentTab: NavigationBarDestination,
-    onTabPressed: ((NavigationBarDestination) -> Unit),
+    onNavigationTabClick: ((NavigationBarDestination) -> Unit),
 ) = NavigationBar(
     modifier = Modifier.fillMaxWidth()
 ) {
@@ -58,7 +58,7 @@ fun CommonBottomBar(
         ) {
             NavigationRailItem(
                 selected = currentTab == navItem.destination,
-                onClick = { onTabPressed(navItem.destination) },
+                onClick = { onNavigationTabClick(navItem.destination) },
                 label = { Text(text = text) },
                 alwaysShowLabel = true,
                 icon = {

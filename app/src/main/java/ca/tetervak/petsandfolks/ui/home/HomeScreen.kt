@@ -22,6 +22,7 @@ import ca.tetervak.petsandfolks.ui.common.NavigationBarDestination
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
+    onNavigationTabClick: ((NavigationBarDestination) -> Unit),
     onMenuButtonClick: (() -> Unit)? = null,
 ) {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
@@ -37,7 +38,7 @@ fun HomeScreen(
         bottomBar = {
             CommonBottomBar(
                 currentTab = NavigationBarDestination.HOME,
-                onTabPressed = {}
+                onNavigationTabClick = onNavigationTabClick
             )
         },
         modifier = Modifier

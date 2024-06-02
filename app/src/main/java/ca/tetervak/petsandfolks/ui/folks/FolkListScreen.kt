@@ -24,6 +24,7 @@ import ca.tetervak.petsandfolks.ui.common.NavigationBarDestination
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FolkListScreen(
+    onNavigationTabClick: ((NavigationBarDestination) -> Unit),
     onMenuButtonClick: (() -> Unit)? = null,
 ){
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
@@ -39,7 +40,7 @@ fun FolkListScreen(
         bottomBar = {
             CommonBottomBar(
                 currentTab = NavigationBarDestination.FOLK_LIST,
-                onTabPressed = {}
+                onNavigationTabClick = onNavigationTabClick
             )
         },
         modifier = Modifier
