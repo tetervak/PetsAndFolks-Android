@@ -1,3 +1,4 @@
+package ca.tetervak.petsandfolks.ui.pets
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -16,7 +17,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ca.tetervak.petsandfolks.R
+import ca.tetervak.petsandfolks.ui.common.CommonBottomBar
 import ca.tetervak.petsandfolks.ui.common.CommonTopBar
+import ca.tetervak.petsandfolks.ui.common.NavigationBarDestination
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -28,8 +31,15 @@ fun PetListScreen(
         topBar = {
             CommonTopBar(
                 title = stringResource(R.string.pet_list),
+                icon = R.drawable.baseline_pets_24,
                 onMenuButtonClick = onMenuButtonClick,
                 scrollBehavior = scrollBehavior
+            )
+        },
+        bottomBar = {
+            CommonBottomBar(
+                currentTab = NavigationBarDestination.PET_LIST,
+                onTabPressed = {}
             )
         },
         modifier = Modifier

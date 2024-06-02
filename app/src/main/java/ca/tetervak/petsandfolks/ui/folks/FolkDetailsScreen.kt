@@ -15,7 +15,9 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.sp
 import ca.tetervak.petsandfolks.R
+import ca.tetervak.petsandfolks.ui.common.CommonBottomBar
 import ca.tetervak.petsandfolks.ui.common.CommonTopBar
+import ca.tetervak.petsandfolks.ui.common.NavigationBarDestination
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -28,8 +30,15 @@ fun FolkDetailsScreen(
         topBar = {
             CommonTopBar(
                 title = stringResource(R.string.folk_details),
+                icon = R.drawable.baseline_person_24,
                 onMenuButtonClick = onMenuButtonClick,
                 scrollBehavior = scrollBehavior
+            )
+        },
+        bottomBar = {
+            CommonBottomBar(
+                currentTab = NavigationBarDestination.NONE,
+                onTabPressed = {}
             )
         },
         modifier = Modifier
