@@ -24,6 +24,7 @@ import ca.tetervak.petsandfolks.ui.common.NavigationBarDestination
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FolkListScreen(
+    onListItemClick: (itemId: String) -> Unit,
     onNavigationTabClick: ((NavigationBarDestination) -> Unit),
     onMenuButtonClick: (() -> Unit)? = null,
 ){
@@ -47,12 +48,18 @@ fun FolkListScreen(
             .fillMaxSize()
             .nestedScroll(scrollBehavior.nestedScrollConnection)
     ) { innerPadding ->
-        FolkListBody(modifier = Modifier.padding(innerPadding))
+        FolkListBody(
+            onListItemClick = onListItemClick,
+            modifier = Modifier.padding(innerPadding)
+        )
     }
 }
 
 @Composable
-fun FolkListBody(modifier: Modifier) {
+fun FolkListBody(
+    onListItemClick: (itemId: String) -> Unit,
+    modifier: Modifier
+) {
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -63,7 +70,7 @@ fun FolkListBody(modifier: Modifier) {
             fontSize = 24.sp
         )
         Button(
-            onClick = {},
+            onClick = { onListItemClick("folk-item-3") },
             modifier = Modifier.padding(top = 16.dp)
         ){
             Text(text = stringResource(id = R.string.folk_details))

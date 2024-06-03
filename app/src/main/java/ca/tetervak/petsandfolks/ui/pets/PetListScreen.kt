@@ -24,7 +24,8 @@ import ca.tetervak.petsandfolks.ui.common.NavigationBarDestination
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PetListScreen(
-    onNavigationTabClick: ((NavigationBarDestination) -> Unit),
+    onListItemClick: (itemId: String) -> Unit,
+    onNavigationTabClick: (NavigationBarDestination) -> Unit,
     onMenuButtonClick: (() -> Unit)? = null,
 ){
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
@@ -47,12 +48,18 @@ fun PetListScreen(
             .fillMaxSize()
             .nestedScroll(scrollBehavior.nestedScrollConnection)
     ) { innerPadding ->
-        PetListBody(modifier = Modifier.padding(innerPadding))
+        PetListBody(
+            onListItemClick = onListItemClick,
+            modifier = Modifier.padding(innerPadding)
+        )
     }
 }
 
 @Composable
-fun PetListBody(modifier: Modifier) {
+fun PetListBody(
+    onListItemClick: (itemId: String) -> Unit,
+    modifier: Modifier
+) {
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -63,7 +70,7 @@ fun PetListBody(modifier: Modifier) {
             fontSize = 24.sp
         )
         Button(
-            onClick = {},
+            onClick = { onListItemClick("pet-item-2") },
             modifier = Modifier.padding(top = 16.dp)
         ){
             Text(text = stringResource(id = R.string.pet_details))
